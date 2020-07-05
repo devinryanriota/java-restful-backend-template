@@ -1,0 +1,5 @@
+com/devin/TestingConfiguration.class
+com/devin/resources/TestingResource.class
+com/devin/api/Saying.class
+com/devin/TestingApplication.class
+com/devin/healthcheck/TestingHealthCheck.class
