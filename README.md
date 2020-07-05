@@ -1,4 +1,6 @@
-# dropwizard-java-template
+# java-restful-backend-template
+
+using dropwizard 2.0.10
 
 gradle:
 
