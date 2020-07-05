@@ -19,10 +19,10 @@ from project directory
 
 
 IDEA:
-1. create an application
-specs:
-Main class: `com.devin.TestingApplication`
-Program args: `server config.yml`
-module: `testing` or `testing.main`
+1. create an application  
+specs:  
+Main class: `com.devin.TestingApplication`  
+Program args: `server config.yml`  
+module: `testing` or `testing.main`  
 
 2. run the app
