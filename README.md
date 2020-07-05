@@ -1,1 +1,24 @@
 # dropwizard-java-template
+
+gradle:
+
+1. gradle shadowJar
+2. to run: `java -jar build/libs/dw-test-1.0-SNAPSHOT.jar server config.yml`
+3. access at localhost:8080 or ports based on config.yml
+
+
+maven:
+
+1. mvn clean install
+2. to run `java -jar target/dw-test-1.0-SNAPSHOT.jar server config.yml`
+3. access at localhost: 8080 or ports based on config.yml
+
+
+IDEA:
+1. create an application
+specs:
+Main class: `com.devin.TestingApplication`
+Program args: `server config.yml`
+module: `testing` or `testing.main`
+
+2. run the app
