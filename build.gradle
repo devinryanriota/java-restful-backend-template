@@ -1,6 +1,7 @@
 plugins {
     id 'com.github.johnrengelman.shadow' version '5.2.0'
     id 'java'
+    id 'nu.studer.jooq' version '4.2'
 }
 
 version '1.0-SNAPSHOT'
@@ -21,6 +22,10 @@ repositories {
 dependencies {
     compile 'io.dropwizard:dropwizard-bom:2.0.10'
     compile 'io.dropwizard:dropwizard-core:2.0.10'
+    compile 'org.jooq:jooq:3.13.2'
+    compile 'org.jooq:jooq-meta:3.13.2'
+    compile 'org.jooq:jooq-codegen:3.13.2'
+    compile 'org.postgresql:postgresql:9.4.1212'
 
     testCompile 'junit:junit:4.12'
 }
@@ -39,4 +44,39 @@ shadowJar {
         attributes 'Main-Class': mainClassName
     }
     archiveName 'dw-test-1.0-SNAPSHOT.jar'
+}
+
+jooq {
+    version = '3.13.2'
+    edition = 'OSS'
+    generateSchemaSourceOnCompilation = true
+    sample(sourceSets.main) {
+        jdbc {
+            driver = 'org.postgresql.Driver'
+            url = 'jdbc:postgresql://localhost:5432/fdr_data'
+            user = 'fdr'
+            password = 'default123'
+        }
+        generator {
+            name = 'org.jooq.codegen.JavaGenerator'
+//            strategy {
+//                name = 'org.jooq.codegen.DefaultGeneratorStrategy'
+//            }
+            database {
+                name = 'org.jooq.meta.postgres.PostgresDatabase'
+                inputSchema = 'fdr'
+            }
+            generate {
+                relations = true
+                deprecated = false
+                records = true
+                immutablePojos = true
+                fluentSetters = true
+            }
+            target {
+                packageName = 'com.devin.jooq'
+                directory = 'src/generated/main/jooq'
+            }
+        }
+    }
 }

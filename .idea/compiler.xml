@@ -3,7 +3,6 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="dw-test" target="1.8" />
-      <module name="testing.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
