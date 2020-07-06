@@ -26,3 +26,8 @@ Program args: `server config.yml`
 module: `testing` or `testing.main`  
 
 2. run the app
+
+
+jooq:
+`gradle generateSampleJooqSchemaSource`
+`gradle cleanGenerateSampleJooqSchemaSource`
