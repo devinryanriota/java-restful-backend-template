@@ -4,9 +4,11 @@ import com.devin.feature.domain.User;
 import com.devin.feature.domain.UserGender;
 import com.devin.feature.domain.UserType;
 import com.devin.jooq.tables.records.UsersRecord;
+import com.google.inject.Singleton;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Singleton
 public class UserDbAdapter {
   public List<User> translatePostgresToModel(List<UsersRecord> records) {
     return records.stream()
