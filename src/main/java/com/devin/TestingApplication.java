@@ -1,5 +1,10 @@
 package com.devin;
 
+import com.devin.feature.TestingFeatureService;
+import com.devin.feature.TestingFeatureServiceImpl;
+import com.devin.feature.domain.UserAccessor;
+import com.devin.feature.infrastructure.database.UserPostgresAccessor;
+import com.devin.feature.infrastructure.endpoint.TestingAPIImpl;
 import com.devin.healthcheck.TestingHealthCheck;
 import com.devin.resources.TestingResource;
 import io.dropwizard.Application;
@@ -35,5 +40,14 @@ public class TestingApplication extends Application<TestingConfiguration> {
 
     environment.healthChecks().register("template", healthCheck);
     environment.jersey().register(resource);
+    environment.jersey().register(createTestingAPI(testingConfiguration));
+  }
+
+  private TestingAPIImpl createTestingAPI(TestingConfiguration configuration) throws Exception {
+    //TODO: get configuration
+    UserAccessor accessor = new UserPostgresAccessor("");
+    TestingFeatureService service = new TestingFeatureServiceImpl(accessor);
+
+    return new TestingAPIImpl(service);
   }
 }

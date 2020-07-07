@@ -21,7 +21,7 @@ public class UserPostgresAccessor implements UserAccessor {
 
   public UserPostgresAccessor(String databaseUrl) throws Exception {
     //TODO: don't hardcode here, but get from configuration
-
+    Class.forName("org.postgresql.Driver");
     username = "fdr";
     password = "default123";
     dbUrl = "jdbc:postgresql://localhost:5432/fdr_data";

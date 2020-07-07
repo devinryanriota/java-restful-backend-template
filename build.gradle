@@ -25,6 +25,7 @@ dependencies {
     compile 'org.jooq:jooq:3.13.2'
     compile 'org.jooq:jooq-meta:3.13.2'
     compile 'org.jooq:jooq-codegen:3.13.2'
+    compile 'org.postgresql:postgresql:42.2.10'
 
     testCompile 'junit:junit:4.12'
 
