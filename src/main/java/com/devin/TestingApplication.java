@@ -1,12 +1,15 @@
 package com.devin;
 
+import com.devin.common.ApplicationManager;
 import com.devin.feature.TestingFeatureService;
 import com.devin.feature.TestingFeatureServiceImpl;
 import com.devin.feature.domain.UserAccessor;
 import com.devin.feature.infrastructure.database.UserPostgresAccessor;
 import com.devin.feature.infrastructure.endpoint.TestingAPIImpl;
 import com.devin.healthcheck.TestingHealthCheck;
+import com.devin.module.UserModule;
 import com.devin.resources.TestingResource;
+import com.google.common.collect.ImmutableList;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
