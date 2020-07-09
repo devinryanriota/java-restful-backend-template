@@ -4,6 +4,7 @@ import com.devin.feature.domain.User;
 import com.devin.feature.domain.UserAccessor;
 import com.devin.jooq.tables.Users;
 import com.devin.jooq.tables.records.UsersRecord;
+import com.google.inject.Inject;
 import java.net.URI;
 import java.util.List;
 import org.jooq.DSLContext;
@@ -19,6 +20,7 @@ public class UserPostgresAccessor implements UserAccessor {
 
   private final UserDbAdapter adapter;
 
+  @Inject
   public UserPostgresAccessor(String databaseUrl) throws Exception {
     //TODO: don't hardcode here, but get from configuration
     Class.forName("org.postgresql.Driver");

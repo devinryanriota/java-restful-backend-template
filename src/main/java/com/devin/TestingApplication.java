@@ -17,7 +17,12 @@ import io.dropwizard.setup.Environment;
 public class TestingApplication extends Application<TestingConfiguration> {
 
   public static void main(String[] args) throws Exception {
-    new TestingApplication().run(args);
+    ApplicationManager applicationManager = new ApplicationManager();
+    applicationManager.addModules(
+        ImmutableList.of(new UserModule())
+    );
+
+    applicationManager.run(TestingApplication.class, args);
   }
 
   @Override
